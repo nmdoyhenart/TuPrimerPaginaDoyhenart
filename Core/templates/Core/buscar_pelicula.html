@@ -1,6 +1,37 @@
-{% extends 'Core/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
-  <h2>Buscar película</h2>
-  <p>Acá va el formulario de búsqueda más adelante.</p>
+<div class="container mt-5">
+    <h1 class="mb-4">Buscar Película</h1>
+
+    <!-- Formulario de búsqueda -->
+    <form method="get" action="{% url 'buscar_pelicula' %}">
+        <div class="input-group mb-4">
+            <input type="text" name="query" class="form-control" placeholder="Ingresá el nombre de la película" value="{{ request.GET.query }}">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </div>
+    </form>
+
+    <!-- Resultados -->
+    {% if query %}
+        <h4>Resultados para: "{{ query }}"</h4>
+        {% if peliculas %}
+            <ul class="list-group mt-3">
+                {% for pelicula in peliculas %}
+                    <li class="list-group-item">
+                        <strong>{{ pelicula.titulo }}</strong> - {{ pelicula.director.nombre }} ({{ pelicula.anio_estreno }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <div class="alert alert-warning mt-3">
+                No se encontraron películas con ese nombre.
+            </div>
+        {% endif %}
+    {% elif request.GET %}
+        <div class="alert alert-info">
+            No ingresaste ningún término de búsqueda.
+        </div>
+    {% endif %}
+</div>
 {% endblock %}

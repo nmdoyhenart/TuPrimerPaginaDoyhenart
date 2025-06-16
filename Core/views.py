@@ -40,4 +40,10 @@ def agregar_director(request):
     return render(request, 'Core/agregar_director.html', {'form': form})
 
 def buscar_pelicula(request):
-    return render(request, 'Core/buscar_pelicula.html')
+    query = request.GET.get('query', '')
+    peliculas = Pelicula.objects.filter(titulo__icontains=query) if query else []
+
+    return render(request, 'Core/buscar.html', {
+        'query': query,
+        'peliculas': peliculas
+    })

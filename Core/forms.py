@@ -14,4 +14,4 @@ class GeneroForm(forms.ModelForm):
 class DirectorForm(forms.ModelForm):
     class Meta:
         model = Director
-        fields = ['nombre_completo', 'fecha_nacimiento', 'nacionalidad']
+        fields = ['nombre_completo', 'nacionalidad']

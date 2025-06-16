@@ -8,7 +8,6 @@ class Genero(models.Model):
 
 class Director(models.Model):
     nombre_completo = models.CharField(max_length=150)
-    fecha_nacimiento = models.DateField()
     nacionalidad = models.CharField(max_length=100)
 
     def __str__(self):
