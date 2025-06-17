@@ -82,6 +82,6 @@ Core/
 ├── urls.py
 └── views.py
 ```
-##📌 Autor
+## 📌 Autor
 
--Nicolás Doyhenart - 2025
+-Nicolás Doyhenart; 2025
