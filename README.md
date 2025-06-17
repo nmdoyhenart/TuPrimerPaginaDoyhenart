@@ -26,19 +26,15 @@ Proyecto web desarrollado con Django como parte del curso de Python de Coderhous
 git clone https://github.com/nmdoyhenart/TuPrimerPaginaDoyhenart.git
 
 2. Instalar dependencias:
-```bash
 pip install -r requirements.txt
 
 3. Aplicar migraciones:
-```bash
 python manage.py migrate
 
 4. Crear un superusuario para acceder al panel de adm:
-```bash
 python manage.py createsuperuser
 
 5. Correr el servidor Django:
-```bash
 python manage.py runserver
 
 6. Acceder:
