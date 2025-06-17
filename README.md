@@ -19,10 +19,6 @@ Proyecto web desarrollado con Django como parte del curso de Python de Coderhous
 - HTML + CSS (con Bootstrap básico)
 - Base de datos SQLite3
 
-## 📷 Capturas de pantalla
-
-> Agregá algunas imágenes del sitio funcionando (por ejemplo, del listado de películas o del formulario de carga).
-
 ## 🧪 Cómo correr el proyecto
 
 1. Clonar el repositorio:
