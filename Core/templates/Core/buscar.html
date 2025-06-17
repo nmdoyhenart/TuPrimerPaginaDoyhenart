@@ -1,0 +1,34 @@
+{% extends "Core/base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2>Buscar Película</h2>
+
+  <!-- Formulario -->
+  <form method="get" action="{% url 'buscar_pelicula' %}" class="mb-4">
+    <div class="input-group">
+      <input type="text" name="query" class="form-control" placeholder="Ingresá el nombre..." value="{{ request.GET.query }}">
+      <button class="btn btn-primary" type="submit">Buscar</button>
+    </div>
+  </form>
+
+  <!-- Resultados -->
+<h2>Resultados de la búsqueda</h2>
+{% if peliculas %}
+    {% for pelicula in peliculas %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ pelicula.titulo }}</h5>
+                <p class="card-text">
+                    <strong>Género:</strong> {{ pelicula.genero.nombre }}<br>
+                    <strong>Director:</strong> {{ pelicula.director }}<br>
+                    <strong>Año:</strong> {{ pelicula.anio }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No se encontraron películas con ese nombre.</p>
+{% endif %}
+</div>
+{% endblock %}

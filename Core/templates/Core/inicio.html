@@ -1,0 +1,29 @@
+{% extends 'Core/base.html' %}
+
+{% block content %}
+  <h2>Listado de Películas</h2>
+
+  {% if peliculas %}
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {% for peli in peliculas %}
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ peli.titulo }}</h5>
+              <p class="card-text">
+                <strong>Director:</strong> {{ peli.director }}<br>
+                <strong>Género:</strong> {{ peli.genero }}<br>
+                <strong>Año:</strong> {{ peli.anio }}<br>
+              </p>
+              {% if peli.descripcion %}
+                <p class="card-text"><small>{{ peli.descripcion }}</small></p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No hay películas cargadas aún.</p>
+  {% endif %}
+{% endblock %}
