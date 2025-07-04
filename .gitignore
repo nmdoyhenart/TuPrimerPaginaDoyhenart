@@ -1,2 +1,14 @@
-# Python
-__pycache__/
+# Ignorar archivos de base de datos
+*.sqlite  
+*.sqlite3  
+db.sqlite3  
+
+# Ignorar PyCache  
+__pycache__/   
+
+# Mantener la carpeta img
+!/img/  
+
+# Otros archivos a ignorar
+.env  
+venv/ 

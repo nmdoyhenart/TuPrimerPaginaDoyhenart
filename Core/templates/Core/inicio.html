@@ -9,6 +9,9 @@
         <div class="col">
           <div class="card h-100">
             <div class="card-body">
+              {% if peli.imagen %}
+                <img src="{{ peli.imagen.url }}" alt="Imagen de {{ peli.titulo }}" class="img-fluid mb-2" style="max-height: 200px;">
+              {% endif %}
               <h5 class="card-title">{{ peli.titulo }}</h5>
               <p class="card-text">
                 <strong>Director:</strong> {{ peli.director }}<br>
@@ -18,6 +21,8 @@
               {% if peli.descripcion %}
                 <p class="card-text"><small>{{ peli.descripcion }}</small></p>
               {% endif %}
+              <a href="{% url 'detalle_pelicula' peli.pk %}"
+                 class="btn btn-sm btn-outline-primary mt-2">Leer más</a>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "Core/base.html" %}
 
 {% block content %}
 <div class="container mt-4">
@@ -7,28 +7,41 @@
   <!-- Formulario -->
   <form method="get" action="{% url 'buscar_pelicula' %}" class="mb-4">
     <div class="input-group">
-      <input type="text" name="query" class="form-control" placeholder="Ingresá el nombre..." value="{{ request.GET.query }}">
+      <input type="text" name="query" class="form-control"
+             placeholder="Ingresá el nombre..."
+             value="{{ request.GET.query }}">
       <button class="btn btn-primary" type="submit">Buscar</button>
     </div>
   </form>
 
   <!-- Resultados -->
-  <h3>Resultados de la búsqueda</h3>
-
   {% if query %}
+    <h4>Resultados para: "{{ query }}"</h4>
     {% if peliculas %}
       <ul class="list-group mt-3">
         {% for pelicula in peliculas %}
-          <li class="list-group-item">
-            <strong>{{ pelicula.titulo }}</strong> - {{ pelicula.director.nombre }} - {{ pelicula.anio_estreno }}
+          <li class="list-group-item d-flex align-items-start">
+            {% if pelicula.imagen %}
+              <img src="{{ pelicula.imagen.url }}"
+                   class="me-3" style="height:60px;" alt="{{ pelicula.titulo }}">
+            {% endif %}
+            <div>
+              <strong>{{ pelicula.titulo }}</strong><br>
+              {{ pelicula.director.nombre_completo }} — {{ pelicula.anio }}<br>
+              Género: {{ pelicula.genero }}
+            </div>
           </li>
         {% endfor %}
       </ul>
     {% else %}
-      <p>No se encontraron películas con ese nombre.</p>
+      <div class="alert alert-warning mt-3">
+        No se encontraron películas con ese nombre.
+      </div>
     {% endif %}
-  {% else %}
-    <p>No ingresaste ningún término de búsqueda.</p>
+  {% elif request.GET %}
+    <div class="alert alert-info">
+      No ingresaste ningún término de búsqueda.
+    </div>
   {% endif %}
 </div>
 {% endblock %}
