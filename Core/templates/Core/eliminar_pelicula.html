@@ -1,0 +1,17 @@
+{% extends 'Core/base.html' %}
+
+{% block content %}
+  <h2>Eliminar película</h2>
+
+  <div class="alert alert-warning">
+    ¿Estás seguro de que querés borrar <strong>{{ peli.titulo }}</strong>?
+  </div>
+
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Sí, borrar</button>
+    <a href="{% url 'detalle_pelicula' peli.pk %}" class="btn btn-secondary">
+      Cancelar
+    </a>
+  </form>
+{% endblock %}

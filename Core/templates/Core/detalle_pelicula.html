@@ -1,0 +1,10 @@
+{% extends 'Core/base.html' %}
+
+{% block content %}
+  <h2>{{ peli.titulo }}</h2>
+  <p><strong>Director:</strong> {{ peli.director }}</p>
+  <p><strong>Género:</strong> {{ peli.genero }}</p>
+  <p><strong>Año:</strong> {{ peli.anio }}</p>
+  <p>{{ peli.descripcion }}</p>
+  <a href="{% url 'index' %}">Volver al listado</a>
+{% endblock %}

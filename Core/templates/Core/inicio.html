@@ -9,14 +9,32 @@
         <div class="col">
           <div class="card h-100">
             <div class="card-body">
+
+              {% if peli.imagen %}
+                <img src="{{ peli.imagen.url }}" class="img-fluid mb-2"
+                     style="max-height: 200px; object-fit:cover;"
+                     alt="Imagen de {{ peli.titulo }}">
+              {% endif %}
+
               <h5 class="card-title">{{ peli.titulo }}</h5>
               <p class="card-text">
                 <strong>Director:</strong> {{ peli.director }}<br>
-                <strong>Género:</strong> {{ peli.genero }}<br>
-                <strong>Año:</strong> {{ peli.anio }}<br>
+                <strong>Género:</strong>  {{ peli.genero }}<br>
+                <strong>Año:</strong>     {{ peli.anio }}
               </p>
+
               {% if peli.descripcion %}
                 <p class="card-text"><small>{{ peli.descripcion }}</small></p>
+              {% endif %}
+
+              <a href="{% url 'detalle_pelicula' peli.pk %}"
+                 class="btn btn-sm btn-outline-primary">Leer más</a>
+
+              {% if user.is_authenticated %}
+                <a href="{% url 'editar_pelicula' peli.pk %}"
+                   class="btn btn-sm btn-outline-warning ms-1">Editar</a>
+                <a href="{% url 'eliminar_pelicula' peli.pk %}"
+                   class="btn btn-sm btn-outline-danger ms-1">Eliminar</a>
               {% endif %}
             </div>
           </div>
