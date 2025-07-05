@@ -29,4 +29,6 @@ urlpatterns = [
 
     # Vista
     path('pages/<int:pk>/', views.detalle_pelicula, name='detalle_pelicula'),
+    path('pages/<int:pk>/editar/', views.editar_pelicula, name='editar_pelicula'),
+    path('pages/<int:pk>/eliminar/', views.eliminar_pelicula, name='eliminar_pelicula'),
 ]

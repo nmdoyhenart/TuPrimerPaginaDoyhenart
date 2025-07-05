@@ -47,6 +47,26 @@ def profile(request):
     context = {"u_form": u_form, "p_form": p_form}
     return render(request, "Core/profile.html", context)
 
+@login_required
+def editar_pelicula(request, pk):
+    peli = get_object_or_404(Pelicula, pk=pk)
+    if request.method == 'POST':
+        form = PeliculaForm(request.POST, request.FILES, instance=peli)
+        if form.is_valid():
+            form.save()
+            return redirect('detalle_pelicula', pk=peli.pk)
+    else:
+        form = PeliculaForm(instance=peli)
+    return render(request, 'Core/editar_pelicula.html', {'form': form, 'peli': peli})
+
+@login_required
+def eliminar_pelicula(request, pk):
+    peli = get_object_or_404(Pelicula, pk=pk)
+    if request.method == 'POST':
+        peli.delete()
+        return redirect('inicio')
+    return render(request, 'Core/eliminar_pelicula.html', {'peli': peli})
+
 def agregar_pelicula(request):
     if request.method == "POST":
         form = PeliculaForm(request.POST, request.FILES)

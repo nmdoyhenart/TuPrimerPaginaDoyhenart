@@ -7,8 +7,8 @@ db.sqlite3
 __pycache__/   
 
 # Mantener la carpeta img
-!/img/  
+media/  
 
 # Otros archivos a ignorar
 .env  
-venv/ 
+venv/
