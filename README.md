@@ -64,10 +64,20 @@ python manage.py runserver
 Core/
 ├── static/
 │   └── favicon.ico
+├── media/
+│   ├── peliculas/
+│   └── avatars/
 ├── templates/Core/
+│   ├── registration/
+│       ├── logged_out.html
+│       ├── login.html
+│       └── signup.html
 │   ├── agregar_director.html
 │   ├── agregar_genero.html
 │   ├── agregar_pelicula.html
+│   ├── detalle_pelicula.html
+│   ├── editar_pelicula.html
+│   ├── eliminar_pelicula
 │   ├── base.html
 │   ├── buscar.html
 │   ├── buscar_pelicula.html
@@ -78,10 +88,11 @@ Core/
 ├── apps.py
 ├── forms.py
 ├── models.py
+├── signals.py
 ├── tests.py
 ├── urls.py
 └── views.py
 ```
 ## 📌 Autor
 
--Nicolás Doyhenart; 2025
+- Nicolás Doyhenart, 2025
