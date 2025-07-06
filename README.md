@@ -20,6 +20,10 @@ Proyecto web desarrollado con **Django** como parte del curso de Python de Coder
 - HTML + CSS (con Bootstrap)
 - SQLite3 (bdd integrada con el Framework)
 
+## 📥 Video explicativo del funcionamiento:
+
+- https://youtu.be/K9m79TUW740
+
 ## 🚀 Cómo correr el proyecto
 
 ### 1. Clonar el repositorio:
